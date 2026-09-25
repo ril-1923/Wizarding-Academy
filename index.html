@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Wizarding Academy</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=IM+Fell+English&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0B1E; --parchment:#F4ECD8; --gold:#C9A227;
+  --gry-bg:#3a0e10; --gry-acc:#D3A625;
+  --sly-bg:#0f2b1c; --sly-acc:#9FB8AD;
+  --rav-bg:#0c1638; --rav-acc:#946B2D;
+  --huf-bg:#241c10; --huf-acc:#F0C75E;
+}
+body{background:var(--ink); color:var(--parchment); font-family:'IM Fell English',serif; overflow-x:hidden;}
+h1,h2,.display-font{font-family:'Cinzel Decorative',cursive;}
+p, li{max-width:70ch;}
+
+/* Hero */
+.hero{min-height:100svh; display:flex; align-items:center; justify-content:center; position:relative; text-align:center; padding:0 1rem;}
+.spark{position:absolute; width:3px; height:3px; background:var(--gold); border-radius:50%; box-shadow:0 0 8px 2px var(--gold); opacity:0; animation:drift 3.5s ease-in-out infinite;}
+@keyframes drift{0%{opacity:0; transform:translateY(0);} 20%{opacity:1;} 100%{opacity:0; transform:translateY(-120px) translateX(20px);}}
+.hero-title{opacity:0; transform:translateY(24px); animation:rise 1.4s ease forwards .3s; font-size:clamp(2.2rem,6vw,4.2rem); letter-spacing:.03em; color:var(--gold);}
+.hero-sub{opacity:0; transform:translateY(18px); animation:rise 1.4s ease forwards .9s; font-size:1.3rem; color:var(--parchment); margin-top:1rem;}
+.hero-cta{opacity:0; animation:rise 1.2s ease forwards 1.5s;}
+@keyframes rise{to{opacity:1; transform:translateY(0);}}
+.btn-gold{background:var(--gold); color:var(--ink); border:none; font-family:'Cinzel Decorative',cursive; padding:.7rem 1.8rem;}
+.btn-gold:hover{background:#e6c15a; color:var(--ink);}
+
+/* House sections */
+.house{min-height:70vh; display:flex; align-items:center; padding:4rem 1rem;}
+.house .container{opacity:0; transform:translateY(30px); transition:opacity .8s ease, transform .8s ease;}
+.house.in-view .container{opacity:1; transform:translateY(0);}
+.gryffindor{background:var(--gry-bg);} .gryffindor h2{color:var(--gry-acc);}
+.slytherin{background:var(--sly-bg);} .slytherin h2{color:var(--sly-acc);}
+.ravenclaw{background:var(--rav-bg);} .ravenclaw h2{color:var(--rav-acc);}
+.hufflepuff{background:var(--huf-bg); color:#1c1508;} .hufflepuff h2{color:var(--huf-acc);} .hufflepuff p, .hufflepuff li{color:#3a2d14;}
+.crest{width:64px; height:64px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center; font-family:'Cinzel Decorative',cursive; font-size:1.4rem; border:2px solid currentColor; margin-bottom:1rem;}
+
+/* Features */
+.features{background:var(--parchment); color:var(--ink); padding:5rem 1rem;}
+.feature-card{background:transparent; border:1px solid rgba(14,11,30,.25); border-radius:4px; padding:1.8rem; height:100%; transition:transform .3s ease, box-shadow .3s ease;}
+.feature-card:hover{transform:translateY(-6px); box-shadow:0 10px 24px rgba(14,11,30,.15);}
+.feature-card h3{font-family:'Cinzel Decorative',cursive; font-size:1.1rem; color:var(--gry-bg);}
+
+footer{background:var(--ink); text-align:center; padding:2.5rem 1rem; color:var(--gold); font-family:'Cinzel Decorative',cursive; font-size:1.1rem;}
+
+@media (prefers-reduced-motion: reduce){
+  .hero-title,.hero-sub,.hero-cta,.spark{animation:none !important; opacity:1 !important; transform:none !important;}
+  .house .container{transition:none;}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div id="sparks"></div>
+  <div>
+    <h1 class="hero-title">The Wizarding Academy</h1>
+    <p class="hero-sub">A place for the curious, the brave, and the strange.</p>
+    <div class="hero-cta"><a href="#houses" class="btn btn-gold btn-lg mt-4">Find your House</a></div>
+  </div>
+</section>
+
+<section id="houses">
+  <div class="house gryffindor">
+    <div class="container">
+      <div class="crest">G</div>
+      <h2>Gryffindor</h2>
+      <p>Home to those who leap before they look — where courage is the only entry requirement, and the common room fire never quite goes out.</p>
+    </div>
+  </div>
+  <div class="house slytherin">
+    <div class="container">
+      <div class="crest">S</div>
+      <h2>Slytherin</h2>
+      <p>Ambition runs through the dungeon halls like a current. Here, cunning is a craft, and every plan has a second plan.</p>
+    </div>
+  </div>
+  <div class="house ravenclaw">
+    <div class="container">
+      <div class="crest">R</div>
+      <h2>Ravenclaw</h2>
+      <p>The tower where questions outnumber answers, and the cleverest students are the ones still asking why.</p>
+    </div>
+  </div>
+  <div class="house hufflepuff">
+    <div class="container">
+      <div class="crest">H</div>
+      <h2>Hufflepuff</h2>
+      <p>Loyalty that doesn't ask for credit. The kitchens are nearby, the friendships last longer than the castle's secret passages.</p>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <h2 class="text-center mb-5 display-font" style="color:var(--gry-bg)">What awaits inside</h2>
+    <div class="row g-4">
+      <div class="col-md-4"><div class="feature-card"><h3>Charms &amp; Spellwork</h3><p>Daily practice turning theory into a flick of the wrist that actually works.</p></div></div>
+      <div class="col-md-4"><div class="feature-card"><h3>Potions</h3><p>Precise measurements, patient stirring, and the occasional small explosion.</p></div></div>
+      <div class="col-md-4"><div class="feature-card"><h3>Care of Magical Creatures</h3><p>Learn what to feed, what to fear, and what simply wants to be left alone.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>Owls accepted year-round.</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// floating sparks in hero
+const sparkBox = document.getElementById('sparks');
+for(let i=0;i<18;i++){
+  const s = document.createElement('div');
+  s.className='spark';
+  s.style.left = Math.random()*100+'%';
+  s.style.top = 40+Math.random()*40+'%';
+  s.style.animationDelay = (Math.random()*3.5)+'s';
+  sparkBox.appendChild(s);
+}
+
+// reveal houses on scroll
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('in-view'); });
+},{threshold:.3});
+document.querySelectorAll('.house').forEach(h=>obs.observe(h));
+</script>
+</body>
+</html>
